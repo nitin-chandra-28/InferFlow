@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InferFlow — Chat</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app" class="app">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo" id="brand-logo" aria-hidden>🤖</div>
+                <div class="title" id="brand-title">InferFlow</div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+            </div>
+        </header>
+       
+
+        <main id="chat-wrap" class="chat-wrap">
+                    <div id="chat-container" class="chat-container" role="log" aria-live="polite">
+                        <div class="chat-brand">InferFlow</div>
+                        <!-- messages go here -->
+                    </div>
+            <template id="message-template">
+                <div class="message-row">
+                    <div class="avatar" aria-hidden></div>
+                    <div class="message-bubble">
+                        <div class="message-text"></div>
+                        <div class="message-meta"><time class="ts"></time></div>
+                    </div>
+                </div>
+            </template>
+        </main>
+
+        <footer class="app-footer">
+            <form id="chat-form" class="chat-form" autocomplete="off">
+                <textarea id="message-input" rows="1" placeholder="Ask me anything..." required></textarea>
+                <div class="controls">
+                    <button type="submit" id="send-btn" class="send-btn">Send</button>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <script type="module" src="config.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+:root{
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --muted: #9ca3af;
+  --text: #e6edf3;
+  --brand: #7c9cff;
+  --incoming: #111827;
+  --outgoing: #2b6cff;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  font-family: Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+  background:linear-gradient(180deg,var(--bg),#020617);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.app{
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  max-width:1100px;
+  margin:0 auto;
+  border-left:1px solid rgba(255,255,255,0.02);
+  border-right:1px solid rgba(255,255,255,0.02);
+}
+
+.app-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:16px 20px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-size:20px}
+.title{font-weight:600;font-size:18px}
+.header-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px;color:var(--text);cursor:pointer}
+
+.chat-wrap{display:flex;flex-direction:column;flex:1;overflow:hidden}
+.chat-container{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  scroll-behavior:smooth;
+  position:relative;
+}
+
+.chat-brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #3b82f6 10%, #22c55e 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.message-row{display:flex;gap:12px;align-items:flex-end}
+.message-row.user{flex-direction:row-reverse}
+.avatar{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2b6cff,#7c9cff);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;overflow:hidden}
+.message-row.user .avatar{background:linear-gradient(135deg,#7c9cff,#2b6cff);color:#222}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.message-bubble{max-width:78%;padding:10px 14px;border-radius:12px;background:var(--glass);position:relative}
+.message-row.user .message-bubble{background:linear-gradient(180deg,var(--outgoing),#1f56d6);color:white}
+.message-text{white-space:pre-wrap;word-break:break-word}
+.message-meta{font-size:11px;color:var(--muted);margin-top:6px;text-align:right}
+
+.typing{display:inline-block;width:42px}
+.typing span{display:inline-block;width:8px;height:8px;background:rgba(255,255,255,0.2);margin:0 3px;border-radius:50%;animation:blink 1s infinite}
+.typing span:nth-child(2){animation-delay:0.15s}
+.typing span:nth-child(3){animation-delay:0.3s}
+@keyframes blink{0%{opacity:0.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-6px)}100%{opacity:0.25;transform:translateY(0)}}
+
+.app-footer{padding:12px 16px;border-top:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,transparent,rgba(0,0,0,0.2))}
+.chat-form{display:flex;gap:12px;align-items:end}
+textarea#message-input{flex:1;min-height:44px;max-height:160px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--text);resize:none}
+textarea#message-input:focus{outline:none;box-shadow:0 4px 18px rgba(79,70,229,0.08)}
+.controls{display:flex;gap:8px}
+.send-btn{background:linear-gradient(90deg,var(--brand),#5a8bff);border:none;color:white;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+.send-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+/* Small screens */
+@media (max-width:640px){
+  .app{max-width:100%}
+  .message-bubble{max-width:84%}
+}
+
+/* Light theme */
+:root.light{--bg:#f6f8fb;--panel:#ffffff;--muted:#6b7280;--text:#0f1724;--brand:#3b82f6;--glass:rgba(0,0,0,0.03);}
