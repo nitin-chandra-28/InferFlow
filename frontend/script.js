@@ -10,7 +10,7 @@ const themeToggle = document.getElementById('theme-toggle');
 const brandLogo = document.getElementById('brand-logo');
 const brandTitle = document.getElementById('brand-title');
 
-const API_ENDPOINT = 'http://localhost:3001/chat';
+const API_ENDPOINT = 'https://inferflow.onrender.com/chat';
 
 // Set brand/logo from config
 if (brandLogo && CHAT_CONFIG.bot.avatar) {
