@@ -62,6 +62,10 @@ app.post('/chat', async (req, res) => {
     }
 });
 
+// This tells the server what to do when it gets a GET request for the root URL
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to my server! It is running.</h1>');
+});
 app.listen(PORT, () => {
     console.log(`✨ Server is running on http://localhost:${PORT}`);
 });
